@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="x48">48dp</dimen>
+    <dimen name="x72">72dp</dimen>
+    <dimen name="x1">1dp</dimen>
+    <dimen name="x64">64dp</dimen>
+</resources>

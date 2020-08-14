@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="com.peopleinteractive.hardiktest.utility.HelperKt" />
+
+        <variable
+            name="user"
+            type="com.peopleinteractive.hardiktest.model.User.Result" />
+
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x8"
+        android:background="@android:color/white"
+        app:cardCornerRadius="@dimen/x4"
+        app:cardElevation="@dimen/x4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/x16">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivUser"
+                imageUrl="@{user.picture.thumbnail}"
+                android:layout_width="@dimen/x72"
+                android:layout_height="@dimen/x72"
+                android:layout_marginTop="@dimen/x16"
+                android:padding="@dimen/x4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircularImage" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x16"
+                android:text="@{user.Name.first.concat(@string/space).concat(user.Name.last)}"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivUser" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x8"
+                android:text="@{Integer.toString(user.Dob.age)}"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabDecline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x16"
+                android:backgroundTint="@android:color/darker_gray"
+                android:src="@drawable/ic_decline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAge" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x16"
+                android:src="@drawable/ic_accept"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAge" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDecline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x8"
+                android:text="@string/decline"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:layout_constraintEnd_toEndOf="@id/fabDecline"
+                app:layout_constraintStart_toStartOf="@id/fabDecline"
+                app:layout_constraintTop_toBottomOf="@id/fabDecline" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAccept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x8"
+                android:text="@string/accept"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:layout_constraintEnd_toEndOf="@id/fabAccept"
+                app:layout_constraintStart_toStartOf="@id/fabAccept"
+                app:layout_constraintTop_toBottomOf="@id/fabAccept" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDeclineInvite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x16"
+                android:text="@string/decline_msg"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAge"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

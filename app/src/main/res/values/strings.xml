@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HardikTest</string>
+
+    <string name="space">\u0020</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="decline_msg">You have already declined.</string>
+
+</resources>
